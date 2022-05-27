@@ -1,0 +1,9 @@
+{
+    "package_title": "Custom Package",
+    "package_name": "{{ cookiecutter.package_title|lower|replace(' ', '-') }}",
+    "package_slug": "{{ cookiecutter.package_name|replace('-', '_') }}",
+    "package_description": "TODO: Descriptions are mandatory",
+    "package_version": "0.0.1",
+    "author_name": "John Doe",
+    "author_email": "john.doe@johndoe.me"
+}

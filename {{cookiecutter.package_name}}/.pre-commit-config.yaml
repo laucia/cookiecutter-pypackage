@@ -1,0 +1,44 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.2.0
+    hooks:
+    -   id: check-yaml
+    -   id: check-toml
+    -   id: end-of-file-fixer
+    -   id: trailing-whitespace
+        args: [--markdown-linebreak-ext=md]
+-   repo: local
+    hooks:
+    -   id: black
+        name: black formatting
+        language: system
+        types: [python]
+        entry: poetry run black
+    -   id: isort
+        name: isort import sorting
+        language: system
+        types: [python]
+        entry: poetry run isort
+    -   id: pyflake
+        name: pyflake checking
+        language: system
+        types: [python]
+        entry: poetry run pyflakes
+    -   id: mypy
+        name: mypy typecheck
+        language: system
+        types: [python]
+        entry: poetry run mypy
+        exclude: ^tests/
+    - id: detect-secrets
+      name: detect-secrets
+      language: system
+      entry: >-
+        poetry run detect-secrets-hook
+        --baseline .secrets.baseline
+        --exclude-files poetry.lock
+        --exclude-lines '"hash":'
+      # "hash": "<hex string>" is a common false positive from .ipynb files
+      files: .*
