@@ -1,0 +1,24 @@
+name: Check cookiecutter default package
+
+on:
+  push:
+    branches:
+      - "**"
+  workflow_dispatch:
+    branches:
+      - "**"
+
+jobs:
+  make-and-bake:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v3
+        with:
+          python-version: '3.9'
+      - name: Install poetry
+        run: pipx install poetry
+      - name: Install cookiecutter
+        run: pipx install cookiecutter
+      - name: Run cookiecutter
+        run: make test
