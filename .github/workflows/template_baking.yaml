@@ -15,14 +15,15 @@ jobs:
           ref: ${{ github.head_ref }}
       - name: Install cookiecutter
         run: pipx install cookiecutter
+      - run: echo "REPOSITORY_NAME=custom-package" >> $GITHUB_ENV
+        shell: bash
       - name: Run cookiecutter
         run: | 
           cookiecutter --no-input .
-          ls
-          find . -mindepth 1 ! -regex '^./custom-package/\(/.*\)?' -delete
-          ls
-          mv custom-package/ .
-          ls
-          rm -r custom-package
-          ls
-          git init --initial-branch=main
+          ls -A | grep -v $REPOSITORY_NAME | grep -v .git | xargs -n 1 rm -rf
+          mv $REPOSITORY_NAME/* .
+          rm -r $REPOSITORY_NAME
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Running initial cookiecutter"
+          push_options: --force
