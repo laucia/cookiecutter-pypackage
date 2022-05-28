@@ -1,0 +1,28 @@
+name: Apply cookiecutter from template
+
+on: [push]
+
+permissions: write-all
+
+jobs:
+  bake:
+    if: ${{ !contains (github.repository, '/cookiecutter-pypackage') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          ref: ${{ github.head_ref }}
+      - name: Install cookiecutter
+        run: pipx install cookiecutter
+      - name: Run cookiecutter
+        run: | 
+          cookiecutter --no-input .
+          ls
+          find . -mindepth 1 ! -regex '^./custom-package/\(/.*\)?' -delete
+          ls
+          mv custom-package/ .
+          ls
+          rm -r custom-package
+          ls
+          git init --initial-branch=main
