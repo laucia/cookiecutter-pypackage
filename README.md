@@ -1,11 +1,15 @@
 # cookiecutter-pypackage
 Cookiecutter template for Python packages on Github
 
+This tries to leverage Github Actions and Github features (like pages) as much as possible, while limiting the amount of setup. So devs can focus on writing the library code and not figure out the boilerplate.
+
 ## Features
 * **package management**: Poetry
 * **tests**: Pytest
 * **tests env**: Tox `TODO`
+  * Cross-Platform / Cross Python Versions
 * **docs**: Mkdocs (Mkdocstrings) `TODO`
+  * Publishing docs as Github Page
 * **linting**: pre-commit
   * black
   * mypy
@@ -13,9 +17,10 @@ Cookiecutter template for Python packages on Github
   * isort
   * detect-secrets
   * trailing whitespace / linebreak cleanup
-* **CI/CD**: Github Actions `TODO`
+* **Versioning & Publishing**: SemVer `TODO`
+  * Automatic Versioning
+  * Cross platform build
   * Publishing to Pypi
-  * Publishing docs as Github Page
 
 ## Quickstart
 
