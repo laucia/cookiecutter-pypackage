@@ -16,6 +16,7 @@ mypy = "^0.910"
 pytest-cov = "^3.0.0"
 pre-commit = "^2.15.0"
 detect-secrets = "^1.2.0"
+commitizen = "^2.27.1"
 
 [tool.black]
 line-length = 120

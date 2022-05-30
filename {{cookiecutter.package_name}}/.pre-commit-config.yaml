@@ -1,5 +1,6 @@
 # See https://pre-commit.com for more information
 # See https://pre-commit.com/hooks.html for more hooks
+default_install_hook_types: ['commit-msg', 'pre-commit']
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.2.0
@@ -9,8 +10,14 @@ repos:
     -   id: end-of-file-fixer
     -   id: trailing-whitespace
         args: [--markdown-linebreak-ext=md]
+# Most of the linting pre-commits python hooks are installed by poetry directly rather than via the `pre-commit` environment
+# to make it easy for people to run the linting tools, in the correct version, without pre-commit getting involved
+# (e.g. from vs-code, or just manually on one file)
+# This makes sure that the tool is used in the same version across the board
 -   repo: local
     hooks:
+    # Code Lint
+    # #########
     -   id: black
         name: black formatting
         language: system
@@ -32,6 +39,8 @@ repos:
         types: [python]
         entry: poetry run mypy
         exclude: ^tests/
+    # Security
+    # #########
     - id: detect-secrets
       name: detect-secrets
       language: system
