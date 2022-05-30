@@ -39,7 +39,8 @@ jobs:
             package_description="${DESCRIPTION}" \
             author_name="${AUTHOR_NAME}" \
             author_email="${AUTHOR_EMAIL}"
-          ls -A | grep -v ${REPOSITORY_NAME} | grep -v .git | xargs -n 1 rm -rf
+          find . -not -path "./${REPOSITORY_NAME}/*" -not -path "./.git/*" -type f -delete
+          find . -type d -empty -delete
           mv ${REPOSITORY_NAME} ${TEMP_DIR_NAME}
           shopt -s dotglob
           mv ${TEMP_DIR_NAME}/* .
