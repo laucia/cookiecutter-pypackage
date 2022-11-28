@@ -1,46 +1,60 @@
 # cookiecutter-pypackage
-Cookiecutter template for Python packages on Github
+_Cookiecutter template for Python packages on Github_
 
-This tries to leverage Github Actions and Github features (like pages, template) as much as possible, while limiting the amount of setup. So devs can focus on writing the library code and not figure out the boilerplate.
+This tries to leverage Github Actions and Github features (like pages, template) as much as possible, while limiting the amount of setup.  
+Devs can then focus on writing the library code and not figure out the boilerplate.
 
-**Workflow**
+**Workflow**  
 
-> While you are working a change is a branch, and its PR (that gets reviewed)  
-> Once you are done, a change is boiled down to a single commit with all relevant informations about the change for posterity.  
+> * While you are working a change is a branch, and its PR (that gets reviewed)  
+> * Once you are done, a change is boiled down to a single commit with all relevant informations about the change for posterity.  
 
-From there everything else from release management, changelogs to linting can be automated!
+Everything else: release management, changelogs, docs, linting can (and should) be automated!
+
+
+**Forking & Contribution**  
+This is meant to be usable to publish public packages, and demonstrate some automation possibilities by example: feel free to fork to adjust it to your personal projects / work situation (pypi is a likely culprit to be changed)
 
 ## Features
 
-* **package management**: Poetry
-* **tests**: Pytest
-* **tests env**: Tox `TODO`
+* **package management**: [`poetry`](https://python-poetry.org/)
+* **tests**: [`pytest`](https://docs.pytest.org/en/7.2.x/)
+* **tests env**: [`tox`](https://tox.wiki/en/latest/) `TODO`
   * Cross-Platform / Cross Python Versions
-* **docs**: Mkdocs (Mkdocstrings) `TODO`
+* **docs**: [`MkDocs`](https://www.mkdocs.org/) ([Mkdocstrings](https://github.com/mkdocstrings/mkdocstrings)) `TODO`
   * Publishing docs as Github Page
-* **linting**: pre-commit
-  * black
-  * mypy
-  * pyflake
-  * isort
-  * detect-secrets
-  * trailing whitespace / linebreak cleanup
-* **Versioning & Publishing**: SemVer 
+* **linting**: [`pre-commit`](https://pre-commit.com/)
+  * [`black`](https://github.com/psf/black): style formatter
+  * [`mypy`](http://mypy-lang.org/): static typing for python
+  * [`pyflake`](https://github.com/PyCQA/pyflakes): basic synthax checking
+  * [`isort`](https://github.com/PyCQA/isort): consistent imports order
+  * [`detect-secrets`](https://github.com/Yelp/detect-secrets): avoid checking in your password / secrets
+  * trailing whitespace / linebreak cleanup: the pre-commit classics
+* **Versioning & Publishing**: [`SemVer`](https://semver.org/) 
   * Conventional Commit styled PR
   * Automatic Versioning
   * Publishing to Pypi `TODO`
 
 ## Quickstart
 
+**Prerequisites**  
+1. Create a [PAT](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) with write access: the semantic versioning requires it to create the versions and changelog
+1. [pypi API Token](https://pypi.org/help/#apitoken): to publish your package to pypi
+
+**Instructions**  
+
 1. Click `Use This Template`
 1. Fill out the desired repository name, and description.
 1. Create the repository.
 1. Wait 30 seconds for the github action to apply the cookiecutter and settings
+1. Create required secrets (`PERSONAL_ACCESS_TOKEN` & `PYPI_API_TOKEN`)
+1. Retry the failed github action to apply the cookiecutter and settings
 
 **Troubleshooting**  
 Worflow will fail if required secrets (Github Personal Access Token & PyPI API token) are not provided:
 1. Create required secrets (`PERSONAL_ACCESS_TOKEN` & `PYPI_API_TOKEN`)
 1. Retry the failed github action to apply the cookiecutter and settings
+
 
 ## Decision Records
 
