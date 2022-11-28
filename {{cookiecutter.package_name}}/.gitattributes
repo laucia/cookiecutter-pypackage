@@ -1,1 +1,2 @@
+# Make git play nicely with markdown linebreak
 **/*.md text whitespace=-cr-at-eol,-trailing-space
