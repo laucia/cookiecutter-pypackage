@@ -2,8 +2,8 @@
 .PHONY: test
 
 help:
-		@echo "test - Run cookiecutter locally and check that the generated package is sensible"
-		@echo "help - this command"
+	@echo "test - Run cookiecutter locally and check that the generated package is sensible"
+	@echo "help - this command"
 
 test:
 	cookiecutter --no-input --overwrite-if-exists .
