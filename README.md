@@ -1,15 +1,21 @@
 # cookiecutter-pypackage
 _Cookiecutter template for Python packages on Github_
 
-This tries to leverage Github Actions and Github features (like pages, template) as much as possible, while limiting the amount of setup.  
-Devs can then focus on writing the library code and not figure out the boilerplate.
+
+ [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![Build Passing](https://github.com/laucia/cookiecutter-pypackage/actions/workflows/test_generation.yaml/badge.svg?branch=main)
+
+This provides a boilerplate to leverage Github provided features and patterns: Pull Requests, Actions, Pages, Template.
+
+Devs can then focus on writing the library code and not figure out the boilerplate, and are assisted in keeping their code documented and consistent by the tooling.
 
 **Workflow**  
 
-> * While you are working a change is a branch, and its PR (that gets reviewed)  
-> * Once you are done, a change is boiled down to a single commit with all relevant informations about the change for posterity.  
-
-Everything else: release management, changelogs, docs, linting can (and should) be automated!
+> New changes are
+> 1. proposed via Github Pull Request
+> 1. Reviewed (and iterated) 
+> 1. Squash merged to `main`.
+>
+> Everything else: release management, changelogs, docs, linting can (and should) be automated!
 
 
 **Forking & Contribution**  
