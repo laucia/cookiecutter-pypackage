@@ -1,3 +1,7 @@
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
 [tool.poetry]
 name = "{{ cookiecutter.package_name }}"
 version = "{{ cookiecutter.package_version }}"
@@ -40,6 +44,12 @@ exclude = "tests/*"
 # ]
 # ignore_missing_imports = true
 
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+[tool.commitizen]
+name = "cz_conventional_commits"
+version = "{{ cookiecutter.package_version }}"
+version_files = [
+    "pyproject.toml:tool.poetry"
+]
+update_changelog_on_bump = true
+changelog_file = "CHANGELOG.md"
+changelog_incremental = true
