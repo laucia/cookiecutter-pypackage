@@ -72,3 +72,17 @@ jobs:
               squash_merge_commit_title: "PR_TITLE",
               squash_merge_commit_message: "PR_BODY",
             });
+      - name: Setup Branch Protection
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          script: |
+            github.rest.repos.updateBranchProtection({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              branch: main,
+              required_status_checks: true,
+              required_status_checks.strict: true,
+              enforce_admins: false,
+              required_pull_request_reviews: false,
+            })
