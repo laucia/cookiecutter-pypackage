@@ -33,7 +33,7 @@ This is meant to be usable to publish public packages, and demonstrate some auto
   * [`detect-secrets`](https://github.com/Yelp/detect-secrets): avoid checking in your password / secrets
   * trailing whitespace / linebreak cleanup: the pre-commit classics
 * **Versioning & Publishing**: [`SemVer`](https://semver.org/) 
-  * Conventional Commit styled PR
+  * [Conventional Commit](https://www.conventionalcommits.org/en/v1.0.0/) styled PR
   * Automatic Versioning
   
 
@@ -59,6 +59,12 @@ Worflow will fail if required secrets (Github Personal Access Token & PyPI API t
 
 
 ## Decision Records
+
+### Follow Conventional Commits
+https://www.conventionalcommits.org/en/v1.0.0/
+A standard is needed to allow to automate the documentation and version bumping by having the engineers providing information about the changes in a structured manner.
+
+Conventional commit is chosen as it is easy and has enough adoption and a large enough tool ecosystem.
 
 ### Lock files & Version bumping
 One goal of packages is to not be too restrictive in the version of the underlying packages they support to make it easy on end users.
