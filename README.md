@@ -25,10 +25,6 @@ This is meant to be usable to publish public packages, and demonstrate some auto
 
 * **package management**: [`poetry`](https://python-poetry.org/)
 * **tests**: [`pytest`](https://docs.pytest.org/en/7.2.x/)
-* **tests env**: [`tox`](https://tox.wiki/en/latest/) `TODO`
-  * Cross-Platform / Cross Python Versions
-* **docs**: [`MkDocs`](https://www.mkdocs.org/) ([Mkdocstrings](https://github.com/mkdocstrings/mkdocstrings)) `TODO`
-  * Publishing docs as Github Page
 * **linting**: [`pre-commit`](https://pre-commit.com/)
   * [`black`](https://github.com/psf/black): style formatter
   * [`mypy`](http://mypy-lang.org/): static typing for python
@@ -39,7 +35,7 @@ This is meant to be usable to publish public packages, and demonstrate some auto
 * **Versioning & Publishing**: [`SemVer`](https://semver.org/) 
   * Conventional Commit styled PR
   * Automatic Versioning
-  * Publishing to Pypi `TODO`
+  
 
 ## Quickstart
 
