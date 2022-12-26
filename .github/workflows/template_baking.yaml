@@ -52,7 +52,7 @@ jobs:
           push_options: --force
     
   decorate:
-    needs: check_secrets
+    needs: bake
     runs-on: ubuntu-latest
     steps:
       - name: Setup Squash-Merge
