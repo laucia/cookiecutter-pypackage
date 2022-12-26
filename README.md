@@ -15,7 +15,7 @@ Devs can then focus on writing the library code and not figure out the boilerpla
 > 1. Reviewed (and iterated) 
 > 1. Squash merged to `main`.
 >
-> Everything else: release management, changelogs, docs, linting can (and should) be automated!
+> Everything else: release management, changelogs, docs, linting can (and should) be automated!  
 
 
 **Forking & Contribution**  
@@ -44,7 +44,7 @@ This is meant to be usable to publish public packages, and demonstrate some auto
 ## Quickstart
 
 **Prerequisites**  
-1. Create a [PAT](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) with write access: the semantic versioning requires it to create the versions and changelog
+1. Create a [PAT](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) with write access: the semantic versioning requires it to create the versions and changelog.
 1. [pypi API Token](https://pypi.org/help/#apitoken): to publish your package to pypi
 
 **Instructions**  

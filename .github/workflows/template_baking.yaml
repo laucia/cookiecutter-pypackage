@@ -80,9 +80,11 @@ jobs:
             github.rest.repos.updateBranchProtection({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              branch: main,
-              required_status_checks: true,
-              required_status_checks.strict: true,
+              branch: "main",
+              required_status_checks: {
+                strict: true,
+                contexts: []
+              },
               enforce_admins: false,
               required_pull_request_reviews: false,
-            })
+            });
