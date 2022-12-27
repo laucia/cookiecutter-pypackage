@@ -38,7 +38,7 @@ repos:
         language: system
         types: [python]
         entry: poetry run mypy
-        exclude: ^tests/
+        exclude: ^test/
     # Security
     # #########
     - id: detect-secrets
