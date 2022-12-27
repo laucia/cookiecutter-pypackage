@@ -10,4 +10,5 @@ test:
 	cd custom-package && git init --initial-branch=main
 	cd custom-package && git add .
 	cd custom-package && poetry install
-	cd custom-package && poetry run pre-commit run --all-files
+	cd custom-package && $(MAKE) lint
+	cd custom-package && $(MAKE) test

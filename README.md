@@ -57,8 +57,17 @@ Worflow will fail if required secrets (Github Personal Access Token & PyPI API t
 1. Create required secrets (`PERSONAL_ACCESS_TOKEN` & `PYPI_API_TOKEN`)
 1. Retry the failed github action to apply the cookiecutter and settings
 
+**Note**  
+* `PERSONAL_ACCESS_TOKEN` won't be used past the initial setup, as of today, but this might change as features gets added.
 
 ## Decision Records
+
+### Run locally
+Most commands should work locally and not just in CI.
+This helps with debugging and reproducing the errors seen in CI.
+
+This is especially true for tests.
+
 
 ### Follow Conventional Commits
 https://www.conventionalcommits.org/en/v1.0.0/
