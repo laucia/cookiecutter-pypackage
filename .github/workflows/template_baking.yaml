@@ -5,7 +5,7 @@ on: [push]
 permissions: write-all
 
 jobs:
-  check_secrets:
+  check_secret_ingredients:
     if: ${{ !contains (github.repository, '/cookiecutter-pypackage') }}
     runs-on: ubuntu-latest
     env: 
@@ -17,7 +17,7 @@ jobs:
 
   bake:
     runs-on: ubuntu-latest
-    needs: check_secrets
+    needs: check_secret_ingredients
     steps:
       - uses: actions/checkout@v3
         with:
