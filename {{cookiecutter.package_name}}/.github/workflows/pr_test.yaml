@@ -26,3 +26,5 @@ jobs:
         run: make test
       - name: Run Linters
         run: make lint
+      - name: Check Documentation
+        run: make docs

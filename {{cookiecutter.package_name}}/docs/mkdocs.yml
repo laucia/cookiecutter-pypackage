@@ -1,0 +1,42 @@
+site_name: {{ cookiecutter.package_title }}
+site_url: https://{{ cookiecutter.github_username }}.github.io/{{ cookiecutter.package_name }}
+repo_url: https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.package_name }}
+repo_name: {{ cookiecutter.github_username }}/{{ cookiecutter.package_name }}
+
+docs_dir: pages
+
+theme:
+  name: material
+  palette:
+    scheme: slate
+    primary: teal
+    accent: lime
+  features:
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.instant
+    - toc.follow
+
+
+nav:
+  - Home: index.md
+  - Quickstart: quickstart.md
+  - API Reference: api.md
+  - Development: dev.md
+
+markdown_extensions:
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+plugins:
+  - search:
+      lang: en
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          paths: [../src]  # search packages in the src folder

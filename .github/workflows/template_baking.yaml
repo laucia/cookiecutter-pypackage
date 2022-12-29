@@ -33,13 +33,15 @@ jobs:
           DESCRIPTION: ${{ github.event.repository.description }}
           AUTHOR_NAME: ${{ github.event.head_commit.author.name }}
           AUTHOR_EMAIL: ${{ github.event.head_commit.author.email }}
+          AUTHOR_GH_HANDLE: ${{ github.event.repository.owner.login }}
           TEMP_DIR_NAME: "a_very_long_name_that_no_one_in_their_right_mind_would_ever_think_to_use_as_top_level_in_a_python_package"
         run: | 
           cookiecutter --no-input . \
             package_title="${REPOSITORY_NAME}" \
             package_description="${DESCRIPTION}" \
             author_name="${AUTHOR_NAME}" \
-            author_email="${AUTHOR_EMAIL}"
+            author_email="${AUTHOR_EMAIL}" \
+            github_username="${AUTHOR_GH_HANDLE}"
           find . -not -path "./${REPOSITORY_NAME}/*" -not -path "./.git/*" -type f -delete
           find . -type d -empty -delete
           mv ${REPOSITORY_NAME} ${TEMP_DIR_NAME}

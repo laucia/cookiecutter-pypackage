@@ -1,4 +1,4 @@
-.PHONY: test lint
+.PHONY: test lint docs
 
 help:
 	@echo "test - Run tests with pytest"
@@ -13,3 +13,6 @@ test:
 
 lint:
 	poetry run pre-commit run --all-files
+
+docs:
+	poetry run mkdocs build -f docs/mkdocs.yml

@@ -12,3 +12,4 @@ test:
 	cd custom-package && poetry install
 	cd custom-package && $(MAKE) lint
 	cd custom-package && $(MAKE) test
+	cd custom-package && $(MAKE) docs

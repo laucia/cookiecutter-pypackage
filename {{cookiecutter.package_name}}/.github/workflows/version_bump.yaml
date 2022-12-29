@@ -13,7 +13,7 @@ jobs:
     concurrency: release
     steps:
       - name: Check out
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
           token: ${{"{{"}} secrets.GITHUB_TOKEN {{"}}"}}
@@ -34,3 +34,7 @@ jobs:
         run: |
           poetry run cz -nr 21 bump --yes
           git push origin HEAD --tags
+      - id: doc
+        name: Update documentation
+        run: |
+          poetry run mkdocs gh-deploy -f docs/mkdocs.yml
