@@ -4,6 +4,7 @@ _This section contains informations about the development of the package, as wel
 ## Library Used for development
 _Knowing these libraries is helpful to navigate the codebase_
 
+* [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
 * Linter Management: [pre-commit](https://pre-commit.com/)
 * Build / Dependency Management: [poetry](https://python-poetry.org/)
 * Documentation: [mkdocs-material](https://squidfunk.github.io/mkdocs-material/)
