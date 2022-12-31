@@ -91,3 +91,15 @@ jobs:
               required_pull_request_reviews: null,
               restrictions: null,
             });
+      - name: Setup Pages
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          script: |
+            github.rest.repos.createPagesSite({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              source: {
+                branch: "gh-pages",
+              },
+            });
